@@ -1,0 +1,23 @@
+{
+    "name": "redpilllinpro/sugarcrm-bundle",
+    "type": "symfony-bundle",
+    "description": "Bundle for simple access to the REST API of Sugar CRM 7 and up.",
+    "keywords": ["symfony rest sugarcrm"],
+    "homepage": "https://github.com/thomasez/SugarCrmBundle",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Thomas Lundquist",
+            "email": "thomasez@redpill-linpro.com"
+        }
+    ],
+    "require": {
+        "symfony/framework-bundle": ">=2.2, <3.0",
+        "redpilllinpro/nosql-bundle": "master@dev"
+    },
+    "autoload": {
+        "psr-0": { "RedpillLinpro\\SugarCrmBundle": "" }
+    },
+    "target-dir": "RedpillLinpro/SugarCrmBundle"
+}
+
