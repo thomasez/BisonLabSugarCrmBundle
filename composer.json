@@ -13,7 +13,6 @@
     ],
     "require": {
         "symfony/framework-bundle": ">=2.2, <3.0",
-        "redpilllinpro/nosql-bundle": "dev-master",
         "spinegar/sugar7wrapper": "dev-master"
     },
     "autoload": {
