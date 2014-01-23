@@ -1,0 +1,8 @@
+services:
+    sugar_wrapper:
+        class: RedpillLinpro\SugarCrmBundle\Service\SugarWrapper
+        arguments:
+            base_url: %sugarcrm_base_url%
+            username: %sugarcrm_username%
+            password: %sugarcrm_password%
+
