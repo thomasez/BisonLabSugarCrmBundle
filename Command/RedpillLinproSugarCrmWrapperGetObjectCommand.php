@@ -38,7 +38,7 @@ Or extending if you need to.
 
 The "object" is the exact name used in Sugar. (Different from the NoSqlBundle based one, which does not pluralize.
 
-And here you *haveÆ* to capitalize correctly, since Sugar is case sensitive.
+And here you *have* to capitalize correctly, since Sugar is case sensitive.
 EOT
             );
 
