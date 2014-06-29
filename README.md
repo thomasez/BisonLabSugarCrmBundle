@@ -28,5 +28,6 @@ Remember your app/AppKernel.php entry:
 And if you are going to use the Nosqlbundle, add it to your composer.json
 
 
-Have fun
+Have fun,
+
 Thomas.
