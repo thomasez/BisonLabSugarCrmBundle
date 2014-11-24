@@ -1,5 +1,5 @@
 {
-    "name": "redpilllinpro/sugarcrm-bundle",
+    "name": "bisonlab/sugarcrm-bundle",
     "type": "symfony-bundle",
     "description": "Bundle for simple access to the REST API of Sugar CRM 7 and up.",
     "keywords": ["symfony rest sugarcrm"],
@@ -8,7 +8,7 @@
     "authors": [
         {
             "name": "Thomas Lundquist",
-            "email": "thomasez@redpill-linpro.com"
+            "email": "github@bisonlab.no"
         }
     ],
     "require": {
@@ -19,8 +19,8 @@
         "redpilllinpro/nosql-bundle": "Another way to access Sugar with a different, but consistent API spanning more connectors than Sugar."
     },
     "autoload": {
-        "psr-0": { "RedpillLinpro\\SugarCrmBundle": "" }
+        "psr-0": { "BisonLab\\SugarCrmBundle": "" }
     },
-    "target-dir": "RedpillLinpro/SugarCrmBundle"
+    "target-dir": "BisonLab/SugarCrmBundle"
 }
 
