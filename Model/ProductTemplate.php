@@ -2,7 +2,7 @@
 
 namespace BisonLab\SugarCrmBundle\Model;
 
-use BisonLab\NosqlBundle\Model\BaseModelDynamic;
+use RedpillLinpro\NosqlBundle\Model\BaseModelDynamic;
 
 class ProductTemplate extends BaseModelDynamic
 {
