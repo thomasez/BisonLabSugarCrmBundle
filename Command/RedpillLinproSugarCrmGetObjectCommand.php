@@ -1,21 +1,21 @@
 <?php
 
-namespace RedpillLinpro\SugarCrmBundle\Command;
+namespace BisonLab\SugarCrmBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use RedpillLinpro\SugarCrmBundle\Model as Model;
+use BisonLab\SugarCrmBundle\Model as Model;
 
 /**
  * Grab a sugar object. This one only does product and account, can easily
  * be extended.. 
  *
- * @author Thomas Lundquist <thomasez@redpill-linpro.com>
+ * @author Thomas Lundquist <github@bisonlab.no>
  */
-class RedpillLinproSugarCrmGetObjectCommand extends ContainerAwareCommand
+class BisonLabSugarCrmGetObjectCommand extends ContainerAwareCommand
 {
 
     private $verbose = true;

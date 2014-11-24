@@ -1,15 +1,15 @@
 <?php
 
-namespace RedpillLinpro\SugarCrmBundle\Manager;
+namespace BisonLab\SugarCrmBundle\Manager;
 
-use RedpillLinpro\NosqlBundle\Manager\BaseManager;
+use BisonLab\NosqlBundle\Manager\BaseManager;
 
 class ProductTemplate extends BaseManager
 {
 
   // The MongoDB Collection name, should be the same as the base model name.
   protected static $_collection = 'ProductTemplates';
-  protected static $_model       = '\RedpillLinpro\SugarCrmBundle\Model\ProductTemplate';
+  protected static $_model       = '\BisonLab\SugarCrmBundle\Model\ProductTemplate';
 
     public function __construct($access_service, $options = array())
     {

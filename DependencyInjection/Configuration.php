@@ -1,6 +1,6 @@
 <?php
 
-namespace RedpillLinpro\SugarCrmBundle\DependencyInjection;
+namespace BisonLab\SugarCrmBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

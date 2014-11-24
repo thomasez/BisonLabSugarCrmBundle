@@ -1,6 +1,6 @@
 <?php
 
-namespace RedpillLinpro\SugarCrmBundle\Service;
+namespace BisonLab\SugarCrmBundle\Service;
 
 
 /*

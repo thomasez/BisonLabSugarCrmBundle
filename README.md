@@ -17,9 +17,9 @@ Choosing this is easy.
 
 In app/config/config.yml, pick one of these lines:
 
-   - { resource: @RedpillLinproSugarCrmBundle/Resources/config/services\_wrapper.yml }
+   - { resource: @BisonLabSugarCrmBundle/Resources/config/services\_wrapper.yml }
 
-   - { resource: @RedpillLinproSugarCrmBundle/Resources/config/services.yml }
+   - { resource: @BisonLabSugarCrmBundle/Resources/config/services.yml }
 
 Parameters.yml needs the same parameters for either access method:
 
@@ -29,7 +29,7 @@ Parameters.yml needs the same parameters for either access method:
 
 Remember your app/AppKernel.php entry:
 
-    new RedpillLinpro\SugarCrmBundle\RedpillLinproSugarCrmBundle(),
+    new BisonLab\SugarCrmBundle\BisonLabSugarCrmBundle(),
 
 And if you are going to use the Nosqlbundle, add it to your composer.json
 

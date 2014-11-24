@@ -1,19 +1,19 @@
 services:
     sugarcrm_rest:
-        class: RedpillLinpro\NosqlBundle\Services\SugarCrmRestReadonly
+        class: BisonLab\NosqlBundle\Services\SugarCrmRestReadonly
         arguments:
             base_url: %sugarcrm_base_url%
             username: %sugarcrm_username%
             password: %sugarcrm_password%
 
     sugarcrm_account_manager:
-        class: RedpillLinpro\SugarCrmBundle\Manager\Account
+        class: BisonLab\SugarCrmBundle\Manager\Account
         arguments: [ @sugarcrm_rest ]
 
     sugarcrm_product_manager:
-        class: RedpillLinpro\SugarCrmBundle\Manager\Product
+        class: BisonLab\SugarCrmBundle\Manager\Product
         arguments: [ @sugarcrm_rest ]
 
     sugarcrm_product_template_manager:
-        class: RedpillLinpro\SugarCrmBundle\Manager\ProductTemplate
+        class: BisonLab\SugarCrmBundle\Manager\ProductTemplate
         arguments: [ @sugarcrm_rest ]

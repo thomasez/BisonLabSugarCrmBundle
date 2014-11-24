@@ -1,21 +1,21 @@
 <?php
 
-namespace RedpillLinpro\SugarCrmBundle\Command;
+namespace BisonLab\SugarCrmBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use RedpillLinpro\SugarCrmBundle\Model as Model;
+use BisonLab\SugarCrmBundle\Model as Model;
 
 /**
  * After all imports we need to process and tie it all together. 
  * This should do that trick.
  *
- * @author Thomas Lundquist <thomasez@redpill-linpro.com>
+ * @author Thomas Lundquist <github@bisonlab.no>
  */
-class RedpillLinproSugarCrmGetAccountCommand extends ContainerAwareCommand
+class BisonLabSugarCrmGetAccountCommand extends ContainerAwareCommand
 {
 
     private $verbose = true;

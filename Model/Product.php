@@ -1,8 +1,8 @@
 <?php 
 
-namespace RedpillLinpro\SugarCrmBundle\Model;
+namespace BisonLab\SugarCrmBundle\Model;
 
-use RedpillLinpro\NosqlBundle\Model\BaseModelDynamic;
+use BisonLab\NosqlBundle\Model\BaseModelDynamic;
 
 class Product extends BaseModelDynamic
 {
