@@ -16,7 +16,7 @@
         "spinegar/sugar7wrapper": "dev-master"
     },
     "replace": {
-        "redpilllinpro/sugarcrm-bundle"; "*"
+        "redpilllinpro/sugarcrm-bundle": "*"
     }
     "suggest": {
         "redpilllinpro/nosql-bundle": "Another way to access Sugar with a different, but consistent API spanning more connectors than Sugar."
