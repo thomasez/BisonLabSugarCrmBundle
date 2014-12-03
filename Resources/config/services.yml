@@ -1,6 +1,6 @@
 services:
     sugarcrm_rest:
-        class: BisonLab\NosqlBundle\Services\SugarCrmRestReadonly
+        class: RedpillLinpro\NosqlBundle\Services\SugarCrmRestReadonly
         arguments:
             base_url: %sugarcrm_base_url%
             username: %sugarcrm_username%
