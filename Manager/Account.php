@@ -2,7 +2,7 @@
 
 namespace BisonLab\SugarCrmBundle\Manager;
 
-use RedpillLinpro\NosqlBundle\Manager\BaseManager;
+use BisonLab\NosqlBundle\Manager\BaseManager;
 
 class Account extends BaseManager
 {
