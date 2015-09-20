@@ -32,7 +32,7 @@ This command is just for grabbing the Account from SugarCrm.
 EOT
             );
 
-        $this->setName('rplp:sugarcrm:get-account');
+        $this->setName('bisonlab:sugarcrm:get-account');
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output)

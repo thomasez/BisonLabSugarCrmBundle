@@ -42,7 +42,7 @@ And here you *have* to capitalize correctly, since Sugar is case sensitive.
 EOT
             );
 
-        $this->setName('rplp:sugarcrmwrapper:get-object');
+        $this->setName('bisonlab:sugarcrmwrapper:get-object');
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output)

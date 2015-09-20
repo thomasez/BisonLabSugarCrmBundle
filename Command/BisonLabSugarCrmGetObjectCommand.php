@@ -35,7 +35,7 @@ Pretty simple, just for testing. Or extending if you need to.
 EOT
             );
 
-        $this->setName('rplp:sugarcrm:get-object');
+        $this->setName('bisonlab:sugarcrm:get-object');
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output)
