@@ -2,7 +2,7 @@
 
 namespace BisonLab\SugarCrmBundle\Manager;
 
-use RedpillLinpro\NosqlBundle\Manager\BaseManager;
+use BisonLab\NoOrmBundle\Manager\BaseManager;
 
 class Product extends BaseManager
 {

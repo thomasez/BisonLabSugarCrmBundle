@@ -19,7 +19,7 @@
         "redpilllinpro/sugarcrm-bundle": "*"
     },
     "suggest": {
-        "redpilllinpro/nosql-bundle": "Another way to access Sugar with a different, but consistent API spanning more connectors than Sugar."
+        "bisonlab/noorm-bundle": "Another way to access Sugar with a different, but consistent API spanning more connectors than Sugar."
     },
     "autoload": {
         "psr-0": { "BisonLab\\SugarCrmBundle": "" }
