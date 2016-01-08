@@ -8,12 +8,12 @@ services:
 
     sugarcrm_account_manager:
         class: BisonLab\SugarCrmBundle\Manager\Account
-        arguments: [ @sugarcrm_rest ]
+        arguments: [ "@sugarcrm_rest" ]
 
     sugarcrm_product_manager:
         class: BisonLab\SugarCrmBundle\Manager\Product
-        arguments: [ @sugarcrm_rest ]
+        arguments: [ "@sugarcrm_rest" ]
 
     sugarcrm_product_template_manager:
         class: BisonLab\SugarCrmBundle\Manager\ProductTemplate
-        arguments: [ @sugarcrm_rest ]
+        arguments: [ "@sugarcrm_rest" ]
