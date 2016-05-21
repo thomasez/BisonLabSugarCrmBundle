@@ -31,7 +31,7 @@ Remember your app/AppKernel.php entry:
 
     new BisonLab\SugarCrmBundle\BisonLabSugarCrmBundle(),
 
-And if you are going to use the NoOrmbundle, add it to your composer.json
+And if you are going to use the BisonLabNoOrmBundle, add it to your composer.json
 
 
 Have fun,
