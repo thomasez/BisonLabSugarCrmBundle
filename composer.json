@@ -11,9 +11,15 @@
             "email": "github@bisonlab.no"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/thomasez/sugarcrm7-api-wrapper-class"
+        }
+    ],
     "require": {
         "symfony/framework-bundle": ">=2.8",
-        "thomasez/sugar7wrapper": "dev-master"
+        "spinegar/sugar7wrapper": "dev-guzzlehttp"
     },
     "replace": {
         "redpilllinpro/sugarcrm-bundle": "*"
