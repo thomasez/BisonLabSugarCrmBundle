@@ -2,7 +2,7 @@ services:
     sugar_wrapper:
         class: BisonLab\SugarCrmBundle\Service\SugarWrapper
         arguments:
-            base_url: %sugarcrm_base_url%
-            username: %sugarcrm_username%
-            password: %sugarcrm_password%
+            base_url: "%sugarcrm_base_url%"
+            username: "%sugarcrm_username%"
+            password: "%sugarcrm_password%"
 
