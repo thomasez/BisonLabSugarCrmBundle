@@ -2,9 +2,9 @@ services:
     sugarcrm_rest:
         class: BisonLab\NoOrmBundle\Services\SugarCrmRestReadonly
         arguments:
-            base_url: "%sugarcrm_base_url%"
-            username: "%sugarcrm_username%"
-            password: "%sugarcrm_password%"
+            - "%sugarcrm_base_url%"
+            - "%sugarcrm_username%"
+            - "%sugarcrm_password%"
 
     sugarcrm_account_manager:
         class: BisonLab\SugarCrmBundle\Manager\Account
