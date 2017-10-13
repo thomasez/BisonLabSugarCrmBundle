@@ -28,8 +28,6 @@
         "bisonlab/noorm-bundle": "Another way to access Sugar with a different, but consistent API spanning more connectors than Sugar."
     },
     "autoload": {
-        "psr-0": { "BisonLab\\SugarCrmBundle": "" }
-    },
-    "target-dir": "BisonLab/SugarCrmBundle"
+        "psr-4": { "BisonLab\\SugarCrmBundle\\": "" }
+    }
 }
-
