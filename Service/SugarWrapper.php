@@ -23,12 +23,9 @@ class SugarWrapper
 
     public function getSugar()
     {
-
         if (!$this->sugar) 
             $this->connectSugar();
-
         return $this->sugar;
-
     }
 
     public function connectSugar()
