@@ -4,28 +4,19 @@
     "description": "Bundle for simple access to the REST API of Sugar CRM 7 and up.",
     "keywords": ["symfony rest sugarcrm"],
     "homepage": "https://github.com/thomasez/SugarCrmBundle",
-    "license": "GPLv2",
+    "license": "LGPLv2",
     "authors": [
         {
             "name": "Thomas Lundquist",
             "email": "github@bisonlab.no"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/thomasez/sugarcrm7-api-wrapper-class"
-        }
-    ],
     "require": {
         "symfony/framework-bundle": ">=2.8",
-        "spinegar/sugar7wrapper": "dev-guzzlehttp"
+        "spinegar/sugar7wrapper": "dev-master"
     },
     "replace": {
         "redpilllinpro/sugarcrm-bundle": "*"
-    },
-    "suggest": {
-        "bisonlab/noorm-bundle": "Another way to access Sugar with a different, but consistent API spanning more connectors than Sugar."
     },
     "autoload": {
         "psr-4": { "BisonLab\\SugarCrmBundle\\": "" }
