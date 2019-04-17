@@ -4,7 +4,7 @@
     "description": "Bundle for simple access to the REST API of Sugar CRM 7 and up.",
     "keywords": ["symfony rest sugarcrm"],
     "homepage": "https://github.com/thomasez/SugarCrmBundle",
-    "license": "LGPLv2",
+    "license": "LGPL-3.0-or-later",
     "authors": [
         {
             "name": "Thomas Lundquist",
