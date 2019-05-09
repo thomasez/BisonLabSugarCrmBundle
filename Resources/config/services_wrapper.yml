@@ -1,6 +1,7 @@
 services:
     sugar_wrapper:
         class: BisonLab\SugarCrmBundle\Service\SugarWrapper
+        public: true
         arguments:
             - "%sugarcrm_base_url%"
             - "%sugarcrm_username%"

@@ -1,6 +1,7 @@
 services:
     sugarcrm_rest:
         class: BisonLab\NoOrmBundle\Services\SugarCrmRestReadonly
+        public: true
         arguments:
             - "%sugarcrm_base_url%"
             - "%sugarcrm_username%"
