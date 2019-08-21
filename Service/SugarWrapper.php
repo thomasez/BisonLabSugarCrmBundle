@@ -36,7 +36,6 @@ class SugarWrapper
         }
         $this->sugar = new \Spinegar\SugarRestClient\Rest();
         $this->sugar
-            ->setClientOption('verify', false)
             ->setUrl($this->options['base_url'])
             ->setUsername($this->options['username'])
             ->setPassword($this->options['password'])
