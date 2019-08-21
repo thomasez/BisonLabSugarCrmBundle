@@ -34,11 +34,12 @@ class SugarWrapper
         if (!preg_match("/v10/", $this->options['base_url'])) {
             $this->options['base_url'] = $this->options['base_url'] . '/rest/v10/';
         }
-        $this->sugar = new \Spinegar\Sugar7Wrapper\Rest("Guzzle6");
-        $this->sugar->setClientOption('verify', false)
+        $this->sugar = new \Spinegar\SugarRestClient\Rest();
+        $this->sugar
+            ->setClientOption('verify', false)
             ->setUrl($this->options['base_url'])
             ->setUsername($this->options['username'])
             ->setPassword($this->options['password'])
-            ->connect();
+            ;
     }
 }
