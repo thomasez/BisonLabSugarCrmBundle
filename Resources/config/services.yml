@@ -1,4 +1,8 @@
 services:
+    BisonLab\SugarCrmBundle\Command\:
+        resource: '../../Command/*'
+        tags: ['console.command']
+
     sugarcrm_rest:
         class: BisonLab\NoOrmBundle\Services\SugarCrmRestReadonly
         public: true

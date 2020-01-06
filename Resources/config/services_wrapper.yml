@@ -1,4 +1,8 @@
 services:
+    BisonLab\SugarCrmBundle\Command\:
+        resource: '../../Command/*'
+        tags: ['console.command']
+
     sugar_wrapper:
         class: BisonLab\SugarCrmBundle\Service\SugarWrapper
         public: true
