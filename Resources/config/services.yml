@@ -25,3 +25,8 @@ services:
         class: BisonLab\SugarCrmBundle\Manager\ProductTemplate
         public: true
         arguments: [ "@sugarcrm_rest" ]
+
+    sugarcrm_product_category_manager:
+        class: BisonLab\SugarCrmBundle\Manager\ProductCategory
+        public: true
+        arguments: [ "@sugarcrm_rest" ]
