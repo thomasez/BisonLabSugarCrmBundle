@@ -1,8 +1,5 @@
 services:
-    BisonLab\SugarCrmBundle\Command\:
-        resource: '../../Command/*'
-        tags: ['console.command']
-
+    # I admit the bummer and wonder myself: Why not sugarcrem_wrapper?
     sugar_wrapper:
         class: BisonLab\SugarCrmBundle\Service\SugarWrapper
         public: true
@@ -11,3 +8,7 @@ services:
             - "%sugarcrm_username%"
             - "%sugarcrm_password%"
 
+    BisonLab\SugarCrmBundle\Command\:
+        resource: '../../Command/*'
+        tags: ['console.command']
+        arguments: [ '@sugar_wrapper', null, null, null, null, null ]

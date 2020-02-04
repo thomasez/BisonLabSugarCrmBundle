@@ -2,11 +2,13 @@
 
 namespace BisonLab\SugarCrmBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+
 use BisonLab\SugarCrmBundle\Model as Model;
 
 /**
@@ -17,20 +19,21 @@ use BisonLab\SugarCrmBundle\Model as Model;
  *
  * @author Thomas Lundquist <github@bisonlab.no>
  */
-class BisonLabSugarCrmWrapperGetObjectCommand extends ContainerAwareCommand
+class BisonLabSugarCrmWrapperGetObjectCommand extends Command
 {
+    use CommonCommandFunctions;
+
+    protected static $defaultName = 'bisonlab:sugarcrmwrapper:get-object';
 
     private $verbose = true;
 
     protected function configure()
     {
-        $this->setDefinition(
-                array(
-                new InputOption('object', '', InputOption::VALUE_REQUIRED, 'object type (Default: Site)'),
-                new InputOption('id', '', InputOption::VALUE_REQUIRED, 'The ID'),
-                ))
-                ->setDescription('Grabs data from SugarCrm.')
-                ->setHelp(<<<EOT
+        $this
+            ->addOption('object', '', InputOption::VALUE_REQUIRED, 'object type (Default: Site)')
+            ->addOption('id', '', InputOption::VALUE_REQUIRED, 'The ID')
+            ->setDescription('Grabs data from SugarCrm.')
+            ->setHelp(<<<EOT
 This command is just for grabbing one object from SugarCrm.
 
 Pretty simple, just for documenting / example and testing. 
@@ -41,8 +44,12 @@ The "object" is the exact name used in Sugar. (Different from the NoSqlBundle ba
 And here you *have* to capitalize correctly, since Sugar is case sensitive.
 EOT
             );
+    }
 
-        $this->setName('bisonlab:sugarcrmwrapper:get-object');
+    public function __construct($reports)
+    { 
+        $this->reports = $reports;
+        parent::__construct();
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output)
@@ -56,11 +63,7 @@ EOT
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
-        $this->sugarservice = $this->getContainer()
-                ->get('sugar_wrapper');
-
-        $this->sugar = $this->sugarservice->getSugar();
+        $this->sugar = $this->sugar_wrapper->getSugar();
 
         $data = $this->sugar->Retrieve($this->object, $this->id);
 
@@ -69,7 +72,5 @@ EOT
         echo "Found " . count($data) . " lines\n";
         print_r($data);
         return true;
-
     }
 }
-

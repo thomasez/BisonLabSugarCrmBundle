@@ -2,11 +2,13 @@
 
 namespace BisonLab\SugarCrmBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+
 use BisonLab\SugarCrmBundle\Model as Model;
 
 /**
@@ -15,24 +17,23 @@ use BisonLab\SugarCrmBundle\Model as Model;
  *
  * @author Thomas Lundquist <github@bisonlab.no>
  */
-class BisonLabSugarCrmGetAccountCommand extends ContainerAwareCommand
+class BisonLabSugarCrmGetAccountCommand extends Command
 {
+    use CommonCommandFunctions;
+
+    protected static $defaultName = 'bisonlab:sugarcrm:get-account';
 
     private $verbose = true;
 
     protected function configure()
     {
-        $this->setDefinition(
-                array(
-                new InputArgument('pk_value', InputArgument::REQUIRED, 'The ID'),
-                ))
-                ->setDescription('Grabs Account data from SugarCrm.')
-                ->setHelp(<<<EOT
+        $this
+            ->setDescription('Grabs Account data from SugarCrm.')
+            ->addArgument('pk_value', InputArgument::REQUIRED, 'The ID')
+            ->setHelp(<<<EOT
 This command is just for grabbing the Account from SugarCrm.
 EOT
             );
-
-        $this->setName('bisonlab:sugarcrm:get-account');
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output)
@@ -43,17 +44,11 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->output = $output;
-
         $this->output->writeln('');
-
-        $this->sugarcrm_account_manager      = $this->getContainer()
-                ->get('sugarcrm_account_manager');
 
         $data = $this->sugarcrm_account_manager->findByKeyVal('name', 'Assasination');
         echo "Found " . count($data) . " accounts\n";
         print_r($data);
         return true;
-
     }
-
 }

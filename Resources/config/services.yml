@@ -1,8 +1,4 @@
 services:
-    BisonLab\SugarCrmBundle\Command\:
-        resource: '../../Command/*'
-        tags: ['console.command']
-
     sugarcrm_rest:
         class: BisonLab\NoOrmBundle\Services\SugarCrmRestReadonly
         public: true
@@ -30,3 +26,8 @@ services:
         class: BisonLab\SugarCrmBundle\Manager\ProductCategory
         public: true
         arguments: [ "@sugarcrm_rest" ]
+
+    BisonLab\SugarCrmBundle\Command\:
+        resource: '../../Command/*'
+        tags: ['console.command']
+        arguments: [ null, '@sugarcrm_account_manager', '@sugarcrm_product_manager', '@sugarcrm_product_category_manager', '@sugarcrm_product_template_manager' ]
