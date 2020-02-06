@@ -10,6 +10,7 @@ services:
             - "%sugarcrm_base_url%"
             - "%sugarcrm_username%"
             - "%sugarcrm_password%"
+            - "sugar-wrapper"
 
     sugarcrm_account_manager:
         class: BisonLab\SugarCrmBundle\Manager\Account

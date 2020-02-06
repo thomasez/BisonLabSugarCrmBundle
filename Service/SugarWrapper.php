@@ -9,15 +9,20 @@ namespace BisonLab\SugarCrmBundle\Service;
 
 class SugarWrapper 
 {
-
     private $sugar;
     private $options;
 
-    public function __construct($base_url, $username, $password)
+    public function __construct($base_url, $username, $password, $platform = "sugar-wrapper")
     {
-        $this->options = array('base_url' => $base_url, 
-            'username' => $username, 
-            'password' => $password);
+        if (!preg_match("/rest\/v\d\d/", $base_url)) {
+            $base_url .= '/rest/v11_5/';
+        }
+        $this->options = [
+            'base_url' => $base_url,
+            'username' => $username,
+            'password' => $password,
+            'platform' => $platform
+        ];
     }
 
 
@@ -30,15 +35,12 @@ class SugarWrapper
 
     public function connectSugar()
     {
-        /* A base URL can include the path.. aka check if someone has..*/
-        if (!preg_match("/v10/", $this->options['base_url'])) {
-            $this->options['base_url'] = $this->options['base_url'] . '/rest/v10/';
-        }
         $this->sugar = new \Spinegar\SugarRestClient\Rest();
         $this->sugar
             ->setUrl($this->options['base_url'])
             ->setUsername($this->options['username'])
             ->setPassword($this->options['password'])
+            ->setPlatform($this->options['platform'])
             ;
     }
 }
