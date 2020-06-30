@@ -22,8 +22,9 @@ class BisonLabSugarCrmExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
-        $loader->load('services_wrapper.yml');
+        $loader = new Loader\YamlFileLoader($container,
+            new FileLocator([ __DIR__.'/../config']));
+        $loader->load('services.yaml');
+        $loader->load('services_wrapper.yaml');
     }
 }
