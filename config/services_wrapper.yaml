@@ -4,12 +4,12 @@ services:
         class: BisonLab\SugarCrmBundle\Service\SugarWrapper
         public: true
         arguments:
-            - "%sugarcrm_base_url%"
-            - "%sugarcrm_username%"
-            - "%sugarcrm_password%"
+            - "%env(SUGARCRM_BASE_URL)%"
+            - "%env(SUGARCRM_USERNAME)%"
+            - "%env(SUGARCRM_PASSWORD)%"
             - "sugar-wrapper"
 
     BisonLab\SugarCrmBundle\Command\:
-        resource: '../../Command/*'
+        resource: '../Command/*'
         tags: ['console.command']
         arguments: [ '@sugar_wrapper', null, null, null, null, null ]
