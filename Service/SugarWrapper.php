@@ -14,7 +14,7 @@ class SugarWrapper
 
     public function __construct($base_url, $username, $password, $platform = "sugar-wrapper")
     {
-        if (!preg_match("/rest\/v\d\d/", $base_url)) {
+        if (!preg_match("/rest\/v[\d_]+/", $base_url)) {
             $base_url .= '/rest/v11_5/';
         }
         $this->options = [
