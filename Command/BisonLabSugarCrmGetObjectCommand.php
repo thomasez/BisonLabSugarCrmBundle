@@ -54,7 +54,7 @@ EOT
 
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->output = $output;
         $this->output->writeln(sprintf('Debug mode is <comment>%s</comment>.', $input->getOption('no-debug') ? 'off' : 'on'));
@@ -75,6 +75,6 @@ EOT
         }
         echo "Found " . count($data) . " accounts\n";
         print_r($data);
-        return true;
+        return 0;
     }
 }

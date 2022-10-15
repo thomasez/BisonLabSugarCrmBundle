@@ -61,7 +61,7 @@ EOT
 
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->sugar = $this->sugar_wrapper->getSugar();
 
@@ -71,6 +71,6 @@ EOT
         // Or none..
         echo "Found " . count($data) . " lines\n";
         print_r($data);
-        return true;
+        return 0;
     }
 }

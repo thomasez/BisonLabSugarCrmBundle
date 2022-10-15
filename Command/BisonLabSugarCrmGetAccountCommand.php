@@ -41,7 +41,7 @@ EOT
         parent::initialize($input, $output);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->output = $output;
         $this->output->writeln('');
@@ -49,6 +49,6 @@ EOT
         $data = $this->sugarcrm_account_manager->findByKeyVal('name', 'Assasination');
         echo "Found " . count($data) . " accounts\n";
         print_r($data);
-        return true;
+        return 0;
     }
 }
