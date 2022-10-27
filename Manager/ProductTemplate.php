@@ -3,20 +3,21 @@
 namespace BisonLab\SugarCrmBundle\Manager;
 
 use BisonLab\NoOrmBundle\Manager\BaseManager;
+use BisonLab\NoOrmBundle\Services\SugarCrmRestReadonly;
 
 class ProductTemplate extends BaseManager
 {
 
-  // The MongoDB Collection name, should be the same as the base model name.
-  protected static $_collection = 'ProductTemplates';
-  protected static $_model       = '\BisonLab\SugarCrmBundle\Model\ProductTemplate';
+    protected static $_collection = 'ProductTemplates';
+    protected static $_model      = '\BisonLab\SugarCrmBundle\Model\ProductTemplate';
 
-    public function __construct($access_service, $options = array())
-    {
+    public function __construct(
+        protected SugarCrmRestReadonly $sugarCrm,
+    ) {
         $options['model'] = self::$_model;
         $options['entity_resource'] = $options['new_entity_resource'] = self::$_collection;
         $options['collection_resource'] = self::$_collection;
 
-        parent::__construct($access_service, $options);
+        parent::__construct($sugarCrm, $options);
     }
 }

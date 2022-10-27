@@ -10,6 +10,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 use BisonLab\SugarCrmBundle\Model as Model;
+use BisonLab\SugarCrmBundle\Manager\Account;
+use BisonLab\SugarCrmBundle\Manager\Product;
+use BisonLab\SugarCrmBundle\Manager\ProductTemplate;
 
 /**
  * Grab a sugar object. This one only does product and account, can easily
@@ -19,17 +22,23 @@ use BisonLab\SugarCrmBundle\Model as Model;
  */
 class BisonLabSugarCrmGetObjectCommand extends Command
 {
-    use CommonCommandFunctions;
-
     protected static $defaultName = 'bisonlab:sugarcrm:get-object';
 
     private $verbose = true;
+
+    public function __construct(
+        private Account $sugarcrm_account_manager,
+        private Product $sugarcrm_product_manager,
+        private ProductTemplate $sugarcrm_product_template_manager,
+    ) {
+        parent::__construct();
+    }
 
     protected function configure()
     {
         $this
             ->setDescription('Grabs data from SugarCrm.')
-            ->addOption('object', '', InputOption::VALUE_REQUIRED, 'object type (Default: Site)')
+            ->addOption('object', '', InputOption::VALUE_REQUIRED, 'object type')
             ->addOption('id', '', InputOption::VALUE_REQUIRED, 'The ID')
             ->setHelp(<<<EOT
 This command is just for grabbing one object from SugarCrm.
@@ -39,19 +48,12 @@ EOT
             );
     }
 
-    public function __construct($reports)
-    { 
-        $this->reports = $reports;
-        parent::__construct();
-    }
-
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
         parent::initialize($input, $output);
 
-        $this->object     = strtolower($input->getOption('object'));
+        $this->object = strtolower($input->getOption('object'));
         $this->id     = strtolower($input->getOption('id'));
-
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -73,7 +75,6 @@ EOT
                 $data = $this->sugarcrm_product_template_manager->findOneById($this->id);
                 break;
         }
-        echo "Found " . count($data) . " accounts\n";
         print_r($data);
         return 0;
     }

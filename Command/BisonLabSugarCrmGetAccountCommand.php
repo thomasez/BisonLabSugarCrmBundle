@@ -10,6 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 use BisonLab\SugarCrmBundle\Model as Model;
+use BisonLab\SugarCrmBundle\Manager\Account;
 
 /**
  * After all imports we need to process and tie it all together. 
@@ -19,11 +20,15 @@ use BisonLab\SugarCrmBundle\Model as Model;
  */
 class BisonLabSugarCrmGetAccountCommand extends Command
 {
-    use CommonCommandFunctions;
-
     protected static $defaultName = 'bisonlab:sugarcrm:get-account';
 
     private $verbose = true;
+
+    public function __construct(
+        private Account $sugarcrm_account_manager,
+    ) {
+        parent::__construct();
+    }
 
     protected function configure()
     {

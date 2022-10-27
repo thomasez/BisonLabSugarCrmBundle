@@ -1,34 +1,49 @@
 services:
-    sugarcrm_rest:
-        class: BisonLab\NoOrmBundle\Services\SugarCrmRestReadonly
-        public: true
+    BisonLab\NoOrmBundle\Services\SugarCrmRestReadonly:
         arguments:
             - "%env(SUGARCRM_BASE_URL)%"
             - "%env(SUGARCRM_USERNAME)%"
             - "%env(SUGARCRM_PASSWORD)%"
             - "sugar-wrapper"
 
-    sugarcrm_account_manager:
-        class: BisonLab\SugarCrmBundle\Manager\Account
+    sugarcrm_rest:
+        alias: BisonLab\NoOrmBundle\Services\SugarCrmRestReadonly
         public: true
-        arguments: [ "@sugarcrm_rest" ]
+
+    BisonLab\SugarCrmBundle\Manager\Account:
+        autowire: true
+        autoconfigure: true
+
+    sugarcrm_account_manager:
+        alias: BisonLab\SugarCrmBundle\Manager\Account
+        public: true
+
+    BisonLab\SugarCrmBundle\Manager\Product:
+        autowire: true
+        autoconfigure: true
 
     sugarcrm_product_manager:
-        class: BisonLab\SugarCrmBundle\Manager\Product
+        alias: BisonLab\SugarCrmBundle\Manager\Product
         public: true
-        arguments: [ "@sugarcrm_rest" ]
+
+    BisonLab\SugarCrmBundle\Manager\ProductTemplate:
+        autowire: true
+        autoconfigure: true
 
     sugarcrm_product_template_manager:
-        class: BisonLab\SugarCrmBundle\Manager\ProductTemplate
+        alias: BisonLab\SugarCrmBundle\Manager\ProductTemplate
         public: true
-        arguments: [ "@sugarcrm_rest" ]
+
+    BisonLab\SugarCrmBundle\Manager\ProductCategory:
+        autowire: true
+        autoconfigure: true
 
     sugarcrm_product_category_manager:
-        class: BisonLab\SugarCrmBundle\Manager\ProductCategory
+        alias: BisonLab\SugarCrmBundle\Manager\ProductCategory
         public: true
-        arguments: [ "@sugarcrm_rest" ]
 
     BisonLab\SugarCrmBundle\Command\:
         resource: '../Command/*'
+        autowire: true
+        autoconfigure: true
         tags: ['console.command']
-        arguments: [ null, '@sugarcrm_account_manager', '@sugarcrm_product_manager', '@sugarcrm_product_category_manager', '@sugarcrm_product_template_manager' ]

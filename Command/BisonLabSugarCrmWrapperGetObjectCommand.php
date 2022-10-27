@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+use BisonLab\SugarCrmBundle\Service\SugarWrapper;
 use BisonLab\SugarCrmBundle\Model as Model;
 
 /**
@@ -21,11 +22,15 @@ use BisonLab\SugarCrmBundle\Model as Model;
  */
 class BisonLabSugarCrmWrapperGetObjectCommand extends Command
 {
-    use CommonCommandFunctions;
-
     protected static $defaultName = 'bisonlab:sugarcrmwrapper:get-object';
 
     private $verbose = true;
+
+    public function __construct(
+        private SugarWrapper $sugarWrapper,
+    ) {
+        parent::__construct();
+    }
 
     protected function configure()
     {
@@ -46,12 +51,6 @@ EOT
             );
     }
 
-    public function __construct($reports)
-    { 
-        $this->reports = $reports;
-        parent::__construct();
-    }
-
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
         parent::initialize($input, $output);
@@ -63,7 +62,7 @@ EOT
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->sugar = $this->sugar_wrapper->getSugar();
+        $this->sugar = $this->sugarWrapper->getSugar();
 
         $data = $this->sugar->Retrieve($this->object, $this->id);
 
