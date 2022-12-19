@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Console\Attribute\AsCommand;
 
 use BisonLab\SugarCrmBundle\Model as Model;
 use BisonLab\SugarCrmBundle\Manager\Account;
@@ -18,10 +19,12 @@ use BisonLab\SugarCrmBundle\Manager\Account;
  *
  * @author Thomas Lundquist <github@bisonlab.no>
  */
+#[AsCommand(
+    name: 'bisonlab:sugarcrm:get-account',
+    description: 'Grabs Account data from SugarCrm.'
+)]
 class BisonLabSugarCrmGetAccountCommand extends Command
 {
-    protected static $defaultName = 'bisonlab:sugarcrm:get-account';
-
     private $verbose = true;
 
     public function __construct(
@@ -33,7 +36,6 @@ class BisonLabSugarCrmGetAccountCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Grabs Account data from SugarCrm.')
             ->addArgument('pk_value', InputArgument::REQUIRED, 'The ID')
             ->setHelp(<<<EOT
 This command is just for grabbing the Account from SugarCrm.

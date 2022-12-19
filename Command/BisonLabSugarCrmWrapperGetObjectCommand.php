@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Console\Attribute\AsCommand;
 
 use BisonLab\SugarCrmBundle\Service\SugarWrapper;
 use BisonLab\SugarCrmBundle\Model as Model;
@@ -20,10 +21,12 @@ use BisonLab\SugarCrmBundle\Model as Model;
  *
  * @author Thomas Lundquist <github@bisonlab.no>
  */
+#[AsCommand(
+    name: 'bisonlab:sugarcrmwrapper:get-object',
+    description: 'Grabs data from SugarCrm.'
+)]
 class BisonLabSugarCrmWrapperGetObjectCommand extends Command
 {
-    protected static $defaultName = 'bisonlab:sugarcrmwrapper:get-object';
-
     private $verbose = true;
 
     public function __construct(
@@ -37,7 +40,6 @@ class BisonLabSugarCrmWrapperGetObjectCommand extends Command
         $this
             ->addOption('object', '', InputOption::VALUE_REQUIRED, 'object type (Default: Site)')
             ->addOption('id', '', InputOption::VALUE_REQUIRED, 'The ID')
-            ->setDescription('Grabs data from SugarCrm.')
             ->setHelp(<<<EOT
 This command is just for grabbing one object from SugarCrm.
 

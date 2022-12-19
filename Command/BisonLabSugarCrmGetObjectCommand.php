@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Console\Attribute\AsCommand;
 
 use BisonLab\SugarCrmBundle\Model as Model;
 use BisonLab\SugarCrmBundle\Manager\Account;
@@ -20,10 +21,12 @@ use BisonLab\SugarCrmBundle\Manager\ProductTemplate;
  *
  * @author Thomas Lundquist <github@bisonlab.no>
  */
+#[AsCommand(
+    name: 'bisonlab:sugarcrm:get-object',
+    description: 'Grabs data from SugarCrm.'
+)]
 class BisonLabSugarCrmGetObjectCommand extends Command
 {
-    protected static $defaultName = 'bisonlab:sugarcrm:get-object';
-
     private $verbose = true;
 
     public function __construct(
@@ -37,7 +40,6 @@ class BisonLabSugarCrmGetObjectCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Grabs data from SugarCrm.')
             ->addOption('object', '', InputOption::VALUE_REQUIRED, 'object type')
             ->addOption('id', '', InputOption::VALUE_REQUIRED, 'The ID')
             ->setHelp(<<<EOT
