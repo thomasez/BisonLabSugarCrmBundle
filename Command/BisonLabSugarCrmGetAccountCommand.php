@@ -33,7 +33,7 @@ class BisonLabSugarCrmGetAccountCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->addArgument('pk_value', InputArgument::REQUIRED, 'The ID')
@@ -43,7 +43,7 @@ EOT
             );
     }
 
-    protected function initialize(InputInterface $input, OutputInterface $output)
+    protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         parent::initialize($input, $output);
     }

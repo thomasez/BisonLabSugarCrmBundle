@@ -35,7 +35,7 @@ class BisonLabSugarCrmWrapperGetObjectCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->addOption('object', '', InputOption::VALUE_REQUIRED, 'object type (Default: Site)')
@@ -53,7 +53,7 @@ EOT
             );
     }
 
-    protected function initialize(InputInterface $input, OutputInterface $output)
+    protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         parent::initialize($input, $output);
 
